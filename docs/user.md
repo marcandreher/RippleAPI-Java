@@ -13,7 +13,16 @@ name.getUserName_aka(); - String
 name.getID - Long
 name.getCurrentAPICode(); - Long
 name.isOnline(); - Boolean
-name.getPrivileges() - Long
-name.getRegistered_On() - String
-name.getUserName() - String
+name.getPrivileges(); - Long
+name.getRegistered_On(); - String
+name.getUserName(); - String
 ```
+The Constructer will Download this Informations. If you want to update it use
+```java
+name.refresh_Items();
+```
+The isOnline Method is up-to-date all time.
+
+#All Links
+[Home](https://marcplaying.github.io/RippleAPI-Java/index.html)
+[Users](https://marcplaying.github.io/RippleAPI-Java/user.html)

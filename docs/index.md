@@ -10,5 +10,6 @@ or the other Server.
 
 If you done that it should work on all Ripple based Servers.
 
-# More Functions
+#All Links
+[Home](https://marcplaying.github.io/RippleAPI-Java/index.html)
 [Users](https://marcplaying.github.io/RippleAPI-Java/user.html)
