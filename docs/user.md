@@ -23,6 +23,6 @@ name.refresh_Items();
 ```
 The isOnline Method is up-to-date all time.
 
-#All Links
+# All Links
 [Home](https://marcplaying.github.io/RippleAPI-Java/index.html)
 [Users](https://marcplaying.github.io/RippleAPI-Java/user.html)
