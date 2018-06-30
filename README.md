@@ -1,4 +1,4 @@
-# The RippleAPI for Java
+# The RippleAPI for Java [![Build Status](https://travis-ci.org/MarcPlaying/RippleAPI-Java.svg?branch=master)](https://travis-ci.org/MarcPlaying/RippleAPI-Java)
 To use it download the Release.
 
 ## Introduce Users
