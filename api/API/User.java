@@ -48,7 +48,7 @@ public class User {
 			try {
 				u = new URL("https://"+Static.server + "/api/v1/users?id="+identificator);
 			} catch (MalformedURLException e1) {
-				e1.printStackTrace();
+				
 			}
 	        try{
 	            URLConnection urlConnection = u.openConnection();
@@ -66,10 +66,8 @@ public class User {
 	        }catch (Exception e){
 	        	
 	        }
-	            JSONParser parser = new JSONParser();
 	            try {
-	            	Object obj = parser.parse(getter);
-	                JSONObject jsonObject = (JSONObject) obj;
+	                JSONObject jsonObject = new JSONObject(getter);
 	                code = (int) jsonObject.get("code");
 			        country = (String) jsonObject.get("country");
 			        id = (int) jsonObject.get("id");
@@ -80,7 +78,7 @@ public class User {
 			        username_aka = (String) jsonObject.get("username_aka");
 			        raw = getter;
 	            } catch (Exception e3) {
-	                e3.printStackTrace();
+	                
 	            }
 		}else {
 			String getter = null;
@@ -119,7 +117,7 @@ public class User {
 			        username_aka = (String) jsonObject.get("username_aka");
 			        raw = getter;
 	            } catch (Exception e3) {
-	                e3.printStackTrace();
+	                
 	            }
 		}
 	}
@@ -148,7 +146,7 @@ public class User {
 		return registered_on;
 	}
 	
-	public String getUserName() {
+	public String getName() {
 		return username;
 	}
 	
@@ -160,9 +158,18 @@ public class User {
 		return raw;
 	}
 	
+	public URL getUser_Page() {
+		try {
+			return new URL("https://enjuu.click/u/"+this.getID());
+		} catch (MalformedURLException e) {
+			
+		}
+		return null;
+	}
+	
 	public Score getBestScore() {
 		try {
-			 String url = "https://"+Static.server + "/api/v1/users/scores/best?id="+ this.getID();
+			 String url = "https://"+Static.server + "/api/v1/users/scores/best?id="+ id;
 		     URL obj = new URL(url);
 		     HttpsURLConnection con = (HttpsURLConnection) obj.openConnection();
 		     con.setRequestMethod("GET");
@@ -200,7 +207,7 @@ public class User {
 		    		 arr.getJSONObject(0).getJSONObject("beatmap").getLong("ranked_status_frozen"),
 		    		 arr.getJSONObject(0).getJSONObject("beatmap").getString("latest_update"));
 		    }catch(Exception e) {
-				e.printStackTrace();
+				
 			}
 		return null;
 	}
@@ -245,7 +252,7 @@ public class User {
 		    		 arr.getJSONObject(0).getJSONObject("beatmap").getLong("ranked_status_frozen"),
 		    		 arr.getJSONObject(0).getJSONObject("beatmap").getString("latest_update"));
 		    }catch(Exception e) {
-				e.printStackTrace();
+				
 			}
 		return null;
 	}

@@ -1,5 +1,10 @@
 package API;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import Main.Static;
+
 public class Score {
 	
 	private Long id;
@@ -21,7 +26,7 @@ public class Score {
 	private String rank;
 	private Long completed;
 	
-	
+	//JSONArray ("beatmap")
 	private Long beatmap_id;
 	private Long beatmapset_id;
 	private String song_name;
@@ -138,6 +143,15 @@ public class Score {
 	}
 	public String getlatest_update() {
 		return latest_update;
+	}
+	
+	public URL getBeatmap_Page() {
+		try {
+			return new URL("https://"+Static.server+"/b/"+this.getbeatmap_id());
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 
