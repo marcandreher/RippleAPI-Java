@@ -37,7 +37,7 @@ public class User {
 	private String raw;
 	
 	
-	public User(UserType type, String identificator) {
+	public User(UserType type, String identificator) throws Exception{
 		File f = new File("tmp/user.json");
 		f.mkdir();
 		ide = identificator;
@@ -45,12 +45,7 @@ public class User {
 		if(type == UserType.ID) {
 			String getter = null;
 	        URL u = null;
-			try {
 				u = new URL("https://"+Static.server + "/api/v1/users?id="+identificator);
-			} catch (MalformedURLException e1) {
-				
-			}
-	        try{
 	            URLConnection urlConnection = u.openConnection();
 	            urlConnection.addRequestProperty("User-Agent", "Mozilla/5.0");
 	            try (InputStream stream = urlConnection.getInputStream();
@@ -63,10 +58,7 @@ public class User {
 	              }
 	              getter = result.toString();
 	            }
-	        }catch (Exception e){
 	        	
-	        }
-	            try {
 	                JSONObject jsonObject = new JSONObject(getter);
 	                code = (int) jsonObject.get("code");
 			        country = (String) jsonObject.get("country");
@@ -77,18 +69,10 @@ public class User {
 	                username = (String) jsonObject.get("username");
 			        username_aka = (String) jsonObject.get("username_aka");
 			        raw = getter;
-	            } catch (Exception e3) {
-	                
-	            }
 		}else {
 			String getter = null;
 	        URL u = null;
-			try {
 				u = new URL("https://"+Static.server + "/api/v1/users?name="+identificator);
-			} catch (MalformedURLException e1) {
-				e1.printStackTrace();
-			}
-	        try{
 	            URLConnection urlConnection = u.openConnection();
 	            urlConnection.addRequestProperty("User-Agent", "Mozilla/5.0");
 	            try (InputStream stream = urlConnection.getInputStream();
@@ -101,11 +85,7 @@ public class User {
 	              }
 	              getter = result.toString();
 	            }
-	        }catch (Exception e){
-	        	
-	        }
-	            
-	            try {
+	        
 	                JSONObject jsonObject =  new JSONObject(getter);
 	                code = (int) jsonObject.get("code");
 			        country = (String) jsonObject.get("country");
@@ -116,9 +96,6 @@ public class User {
 	                username = (String) jsonObject.get("username");
 			        username_aka = (String) jsonObject.get("username_aka");
 			        raw = getter;
-	            } catch (Exception e3) {
-	                
-	            }
 		}
 	}
 	
@@ -158,18 +135,12 @@ public class User {
 		return raw;
 	}
 	
-	public URL getUser_Page() {
-		try {
-			return new URL("https://enjuu.click/u/"+this.getID());
-		} catch (MalformedURLException e) {
-			
-		}
-		return null;
+	public URL getUser_Page() throws MalformedURLException {
+		return new URL("https://enjuu.click/u/"+this.getID());
 	}
 	
-	public Score getBestScore() {
-		try {
-			 String url = "https://"+Static.server + "/api/v1/users/scores/best?id="+ id;
+	public Score getBestScore() throws Exception{
+		     String url = "https://"+Static.server + "/api/v1/users/scores/best?id="+ id;
 		     URL obj = new URL(url);
 		     HttpsURLConnection con = (HttpsURLConnection) obj.openConnection();
 		     con.setRequestMethod("GET");
@@ -206,22 +177,17 @@ public class User {
 		    		 arr.getJSONObject(0).getJSONObject("beatmap").getLong("ranked"),
 		    		 arr.getJSONObject(0).getJSONObject("beatmap").getLong("ranked_status_frozen"),
 		    		 arr.getJSONObject(0).getJSONObject("beatmap").getString("latest_update"));
-		    }catch(Exception e) {
-				
-			}
-		return null;
 	}
 	
-	public Score getLastScore() {
-		try {
-			 String url = "https://"+Static.server + "/api/v1/users/scores/recent?id="+ this.getID();
-		     URL obj = new URL(url);
-		     HttpsURLConnection con = (HttpsURLConnection) obj.openConnection();
-		     con.setRequestMethod("GET");
-		     con.setRequestProperty("User-Agent", "Mozilla/5.0");
-		     int responseCode = con.getResponseCode();
+	public Score getLastScore() throws Exception{
+			 String url2 = "https://"+Static.server + "/api/v1/users/scores/recent?id="+ this.getID();
+		     URL obj2 = new URL(url2);
+		     HttpsURLConnection con2 = (HttpsURLConnection) obj2.openConnection();
+		     con2.setRequestMethod("GET");
+		     con2.setRequestProperty("User-Agent", "Mozilla/5.0");
+		     int responseCode = con2.getResponseCode();
 		     BufferedReader in = new BufferedReader(
-		             new InputStreamReader(con.getInputStream()));
+		             new InputStreamReader(con2.getInputStream()));
 		     String inputLine;
 		     StringBuffer response = new StringBuffer();
 		     while ((inputLine = in.readLine()) != null) {
@@ -251,10 +217,6 @@ public class User {
 		    		 arr.getJSONObject(0).getJSONObject("beatmap").getLong("ranked"),
 		    		 arr.getJSONObject(0).getJSONObject("beatmap").getLong("ranked_status_frozen"),
 		    		 arr.getJSONObject(0).getJSONObject("beatmap").getString("latest_update"));
-		    }catch(Exception e) {
-				
-			}
-		return null;
 	}
 	
 

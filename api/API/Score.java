@@ -47,13 +47,35 @@ public class Score {
 			Long beatmapset_id, String song_name, Long ar, Long od, Long difficulty, Long map_max_combo,
 			Long hit_length, Long ranked, Long ranked_status_frozen, String latest_update)  {
 		
-		this.id = id;this.beatmap_md5 = beatmap_md5;this.score = score;this.max_combo = max_combo;
-		this.full_combo = full_combo;this.mods = mods;this.count_300 = count_300;this.count_100 = count_100;
-		this.count_50 = count_50;this.count_geki = count_geki;this.count_katu = count_katu;this.count_miss = count_miss;
-		this.time = time;this.play_mode = play_mode;this.accuracy = accuracy;this.pp = pp;this.rank = rank;
-		this.completed = completed;this.beatmap_id = beatmap_id;this.beatmapset_id = beatmapset_id;
-		this.song_name = song_name;this.ar = ar;this.od = od;this.difficulty = difficulty;this.map_max_combo = map_max_combo;
-		this.hit_length = hit_length;this.ranked = ranked;this.ranked_status_frozen = ranked_status_frozen;this.latest_update = latest_update;
+		this.id = id;
+		this.beatmap_md5 = beatmap_md5;
+		this.score = score;
+		this.max_combo = max_combo;
+		this.full_combo = full_combo;
+		this.mods = mods;
+		this.count_300 = count_300;
+		this.count_100 = count_100;
+		this.count_50 = count_50;
+		this.count_geki = count_geki;
+		this.count_katu = count_katu;
+		this.count_miss = count_miss;
+		this.time = time;
+		this.play_mode = play_mode;
+		this.accuracy = accuracy;
+		this.pp = pp;
+		this.rank = rank;
+		this.completed = completed;
+		this.beatmap_id = beatmap_id;
+		this.beatmapset_id = beatmapset_id;
+		this.song_name = song_name;
+		this.ar = ar;
+		this.od = od;
+		this.difficulty = difficulty;
+		this.map_max_combo = map_max_combo;
+		this.hit_length = hit_length;
+		this.ranked = ranked;
+		this.ranked_status_frozen = ranked_status_frozen;
+		this.latest_update = latest_update;
 		
 	}
 	
