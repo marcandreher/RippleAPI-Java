@@ -2,6 +2,7 @@ package Main;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
@@ -10,6 +11,7 @@ import java.net.URLConnection;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 public class RippleAPI {
 	
@@ -17,15 +19,14 @@ public class RippleAPI {
 		Static.server = server;
 	}
 	
-	public static Boolean isReachable() {
+	public static Boolean isReachable() throws IOException, ParseException {
 		String getter = null;
         URL u = null;
 		try {
 			u = new URL(Static.server + "/api/v1/ping");
-		} catch (MalformedURLException e1) {
-			e1.printStackTrace();
+		} catch (MalformedURLException ex) {
+			ex.printStackTrace();
 		}
-        try{
             URLConnection urlConnection = u.openConnection();
             urlConnection.addRequestProperty("User-Agent", "Mozilla/5.0");
             try (InputStream stream = urlConnection.getInputStream();
@@ -38,11 +39,7 @@ public class RippleAPI {
               }
               getter = result.toString();
             }
-        }catch (Exception e){
-        	
-        }
             JSONParser parser = new JSONParser();
-            try {
             	Object obj = parser.parse(new FileReader(getter));
                 JSONObject jsonObject = (JSONObject) obj;
                 Long code = (Long) jsonObject.get("code");
@@ -50,12 +47,7 @@ public class RippleAPI {
                 	return false;
                 }else if(code == 200) {
                 	return true;
-                }else {
-                	
                 }
-            } catch (Exception e3) {
-                return false;
-            }
 			return null;
 	}
 	
