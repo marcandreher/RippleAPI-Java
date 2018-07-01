@@ -4,10 +4,12 @@ To use it download the Release or use Maven
 ## Maven
 Add the JitPack Rep and the RippleAPI-Java dependency
 ```xml
-<repository>
+	<repositories>
+		<repository>
 		    <id>jitpack.io</id>
 		    <url>https://jitpack.io</url>
 		</repository>
+	</repositories>
 ```
 ```xml
 	<dependency>
