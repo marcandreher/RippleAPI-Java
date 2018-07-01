@@ -1,5 +1,21 @@
 # The RippleAPI for Java [![Build Status](https://travis-ci.org/MarcPlaying/RippleAPI-Java.svg?branch=master)](https://travis-ci.org/MarcPlaying/RippleAPI-Java) ![Issues](https://img.shields.io/github/issues/MarcPlaying/RippleAPI-Java.svg) [![CodeFactor](https://www.codefactor.io/repository/github/marcplaying/rippleapi-java/badge/master)](https://www.codefactor.io/repository/github/marcplaying/rippleapi-java/overview/master)
-To use it download the Release.
+To use it download the Release or use Maven
+
+## Maven
+Add the JitPack Rep and the RippleAPI-Java dependency
+```xml
+<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
+```
+```xml
+	<dependency>
+	    <groupId>com.github.MarcPlaying</groupId>
+	    <artifactId>RippleAPI-Java</artifactId>
+	    <version>master-SNAPSHOT</version>
+	</dependency>
+```
 
 ## Introduce Users
 You must create a User First You have 2 diffrent Types for that:
