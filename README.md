@@ -69,7 +69,7 @@ The getCat() is important for that! Refresh() generates a new Cat
 ## Introduce onlineUserChecker
 If you want to check how many Users are Online
 ```java
-Cat c = new Cat()
+onlineUserChecker hecker = new onlineUserChecker()
 ```
 ```java
 getResult() - Long
